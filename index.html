@@ -97,28 +97,19 @@
   <!-- Blogs Section -->
   <section id="blogs" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">Latest Blogs</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="blog-card p-6 rounded-xl cursor-pointer" data-blog="attention-transformers">
-          <h3 class="text-xl font-semibold mb-3">Understanding Attention in Transformers</h3>
-          <p class="text-gray-600 mb-4">An intuitive explanation of how attention mechanisms work in transformer models.
-          </p>
-          <span class="text-sm text-gray-500">March 15, 2024</span>
+      <div class="blogs-section">
+        <h2 class="text-3xl font-bold mb-8">Featured Blogs</h2>
+        <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <!-- Featured blogs will be inserted here -->
         </div>
-        <div class="blog-card p-6 rounded-xl cursor-pointer" data-blog="deploy-flask-docker">
-          <h3 class="text-xl font-semibold mb-3">Deploying ML Models using Flask + Docker</h3>
-          <p class="text-gray-600 mb-4">A step-by-step guide to containerizing and deploying ML models in production.
-          </p>
-          <span class="text-sm text-gray-500">March 10, 2024</span>
+        <div class="text-center">
+          <a href="blogs.html" class="btn-primary inline-flex items-center">
+            Show More Blogs
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
         </div>
-      </div>
-      <div class="text-center mt-12">
-        <a href="blogs.html" class="btn-primary inline-flex items-center">
-          Show More Blogs
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
       </div>
     </div>
   </section>
@@ -188,6 +179,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="js/common.js"></script>
   <script src="js/projects.js"></script>
+  <script src="js/home.js"></script>
 </body>
 
 </html>

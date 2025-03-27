@@ -1,52 +1,9 @@
-// Project data
-const projectData = {
-    "featured": [
-        {
-            "id": "docuanswer",
-            "title": "DocuAnswer – LangChain RAG App",
-            "description": "RAG system using FAISS + GPT-4o-mini. Deployed with Streamlit and Flask.",
-            "github": "https://github.com/mittapallynitin/DocuAnswer",
-            "isFeatured": true
-        },
-        {
-            "id": "emotion-detection",
-            "title": "Emotion Detection",
-            "description": "Text classification using TinyBERT. Achieved >98% F1 on imbalanced data.",
-            "github": "https://github.com/mittapallynitin/EmotionDetection",
-            "isFeatured": true
-        },
-        {
-            "id": "causal-language-modeling",
-            "title": "Causal Language Modeling",
-            "description": "Custom tokenizer & GPT-2 model trained on CodeSearchNet for Python generation.",
-            "github": "https://github.com/mittapallynitin/casual-languge-modeling",
-            "isFeatured": true
-        }
-    ],
-    "all": [
-        {
-            "id": "sentiment-analysis",
-            "title": "Sentiment Analysis API",
-            "description": "RESTful API for sentiment analysis using BERT. Containerized with Docker.",
-            "github": "#",
-            "isFeatured": false
-        },
-        {
-            "id": "image-classification",
-            "title": "Image Classification",
-            "description": "CNN model for image classification using PyTorch. Achieved 95% accuracy.",
-            "github": "#",
-            "isFeatured": false
-        },
-        {
-            "id": "time-series",
-            "title": "Time Series Forecasting",
-            "description": "LSTM model for time series prediction with TensorFlow.",
-            "github": "#",
-            "isFeatured": false
-        }
-    ]
-};
+// List of featured repository names
+const featuredRepos = [
+    'docuanswer',
+    'transformers',
+    'causal-languge-modeling'
+];
 
 // Cache DOM elements
 let featuredContainer;
@@ -55,25 +12,64 @@ let allProjectsContainer;
 // Function to create a project card
 function createProjectCard(project) {
     return `
-        <div class="project-card p-6 rounded-xl cursor-pointer" data-github="${project.github}">
-            <h3 class="text-xl font-semibold mb-3">${project.title}</h3>
-            <p class="text-gray-600 mb-4">${project.description}</p>
+        <div class="project-card p-6 rounded-xl cursor-pointer" data-github="${project.html_url}">
+            <h3 class="text-xl font-semibold mb-3">${project.name}</h3>
+            <p class="text-gray-600 mb-4">${project.description || 'No description available.'}</p>
             <div class="flex items-center justify-between">
-                <a href="${project.github}" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View Code →</a>
+                <a href="${project.html_url}" class="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View Code →</a>
                 ${project.isFeatured ? '<span class="text-sm text-gray-500">Featured</span>' : ''}
             </div>
         </div>
     `;
 }
 
+// Function to fetch projects from GitHub
+async function fetchProjects() {
+    try {
+        const response = await fetch('https://api.github.com/users/mittapallynitin/repos');
+        if (!response.ok) {
+            throw new Error('Failed to fetch projects');
+        }
+        const projects = await response.json();
+
+        // Filter out specific repositories and sort by stars
+        const filteredProjects = projects
+            .filter(project =>
+                project.name.toLowerCase() !== 'mittapallynitin' &&
+                project.name.toLowerCase() !== 'blogs' &&
+                project.name.toLowerCase() !== 'scikit-learn' &&
+                project.name.toLowerCase() !== 'portfolio'
+            )
+            .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+        // Mark projects as featured based on the featuredRepos list
+        const projectsWithFeatured = filteredProjects.map(project => ({
+            ...project,
+            isFeatured: featuredRepos.includes(project.name.toLowerCase())
+        }));
+
+        // Separate featured and non-featured projects
+        return {
+            featured: projectsWithFeatured.filter(project => project.isFeatured),
+            all: projectsWithFeatured.filter(project => !project.isFeatured)
+        };
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+        throw error;
+    }
+}
+
 // Function to render projects
-function renderProjects() {
+async function renderProjects() {
     try {
         // Initialize DOM elements if not already cached
         if (!featuredContainer) {
             featuredContainer = document.getElementById('featured-projects');
             allProjectsContainer = document.getElementById('all-projects');
         }
+
+        // Fetch projects from GitHub
+        const projectData = await fetchProjects();
 
         // Render featured projects
         if (featuredContainer) {
@@ -82,14 +78,14 @@ function renderProjects() {
 
         // Render all projects
         if (allProjectsContainer) {
-            allProjectsContainer.innerHTML = [...projectData.featured, ...projectData.all].map(createProjectCard).join('');
+            allProjectsContainer.innerHTML = projectData.all.map(createProjectCard).join('');
         }
 
         // Add click event listeners to project cards
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('click', () => {
                 const githubUrl = card.dataset.github;
-                if (githubUrl && githubUrl !== '#') {
+                if (githubUrl) {
                     window.open(githubUrl, '_blank');
                 }
             });
