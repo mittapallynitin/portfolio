@@ -5,12 +5,25 @@ let allBlogsContainer;
 // Function to create a blog card
 function createBlogCard(blog) {
     return `
-        <div class="blog-card p-6 rounded-xl cursor-pointer bg-white shadow-sm hover:shadow-md transition-shadow" data-blog="${blog.id}">
-            <h3 class="text-xl font-semibold mb-3">${blog.title}</h3>
-            <p class="text-gray-600 mb-4">${blog.description}</p>
-            <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">${blog.date}</span>
-                ${blog.featured ? '<span class="text-sm text-blue-600">Featured</span>' : ''}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col" data-blog="${blog.id}">
+            <div class="p-6 flex-grow">
+                <h3 class="text-xl font-semibold mb-2">${blog.title}</h3>
+                <p class="text-gray-600 mb-4 line-clamp-3">${blog.description}</p>
+                ${blog.tags && blog.tags.length > 0 ? `
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${blog.tags.map(tag => `
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">${tag}</span>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+            <div class="px-6 py-4 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                    <a href="${blog.fullUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                        Read More
+                    </a>
+                    <span class="text-sm text-gray-500">${blog.date}</span>
+                </div>
             </div>
         </div>
     `;
@@ -67,20 +80,23 @@ async function renderBlogs() {
         }
 
         // Add click event listeners to blog cards
-        document.querySelectorAll('.blog-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const blogId = card.dataset.blog;
-                console.log('Clicked blog ID:', blogId);
+        document.querySelectorAll('#featured-blogs .bg-white, #all-blogs .bg-white').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on the Read More link
+                if (!e.target.closest('a')) {
+                    const blogId = card.dataset.blog;
+                    console.log('Clicked blog ID:', blogId);
 
-                if (blogId) {
-                    const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
-                    console.log('Found blog:', blog);
+                    if (blogId) {
+                        const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
+                        console.log('Found blog:', blog);
 
-                    if (blog) {
-                        console.log('Redirecting to:', blog.fullUrl);
-                        window.open(blog.fullUrl, '_blank');
-                    } else {
-                        console.error('Blog not found:', blogId);
+                        if (blog) {
+                            console.log('Redirecting to:', blog.fullUrl);
+                            window.open(blog.fullUrl, '_blank');
+                        } else {
+                            console.error('Blog not found:', blogId);
+                        }
                     }
                 }
             });

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Nitin Mittapally</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #7c3aed;
+            --text-color: #1f2937;
+        }
+
+        /* Resume styles */
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-color);
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.3;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .company {
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .task-list {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .task-list li {
+            position: relative;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .task-list li::before {
+            content: '•';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
+            border-radius: 6px;
+            font-size: 0.875rem;
+            color: var(--text-color);
+        }
+
+        .certification-item {
+            margin-bottom: 1rem;
+        }
+
+        .certification-title {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .certification-id {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            display: none;
+        }
+
+        #mobile-menu.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 40px 20px;
+                margin: 0 16px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="page-background min-h-screen">
+        <!-- Header -->
+        <header class="fixed w-full bg-white bg-opacity-95 backdrop-blur-md shadow-sm z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900">Nitin Mittapally</a>
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                        <a href="index.html#projects"
+                            class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                        <a href="index.html#blogs" class="text-gray-600 hover:text-gray-900 transition-colors">Blogs</a>
+                        <a href="index.html#resume" class="text-gray-900 font-medium">Resume</a>
+                        <a href="index.html#contact"
+                            class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    </nav>
+                    <button id="mobile-menu-button" class="md:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path class="mobile-menu-icon" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path class="mobile-menu-close hidden" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Navigation -->
+                <nav id="mobile-menu" class="md:hidden">
+                    <div class="flex flex-col space-y-4 pt-4">
+                        <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                        <a href="index.html#projects"
+                            class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                        <a href="index.html#blogs" class="text-gray-600 hover:text-gray-900 transition-colors">Blogs</a>
+                        <a href="index.html#resume" class="text-gray-900 font-medium">Resume</a>
+                        <a href="index.html#contact"
+                            class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Resume Content -->
+        <main class="pt-24">
+            <div class="resume-container">
+                <!-- Personal Info -->
+                <div class="text-center mb-8">
+                    <h1 id="resume-name" class="name">Loading...</h1>
+                    <div id="resume-title" class="title">Loading...</div>
+                </div>
+
+                <!-- Summary -->
+                <div class="section-title">Summary</div>
+                <p id="resume-summary" class="text-gray-600 mb-8">Loading...</p>
+
+                <!-- Experience -->
+                <div class="section-title">Experience</div>
+                <div id="resume-experience">
+                    <!-- Experience items will be inserted here -->
+                </div>
+
+                <!-- Education -->
+                <div class="section-title">Education</div>
+                <div id="resume-education">
+                    <!-- Education items will be inserted here -->
+                </div>
+
+                <!-- Skills -->
+                <div class="section-title">Skills</div>
+                <div id="resume-technical-skills" class="skills-grid">
+                    <!-- Skills will be inserted here -->
+                </div>
+
+                <!-- Certifications -->
+                <div class="section-title">Certifications</div>
+                <div id="resume-certifications">
+                    <!-- Certifications will be inserted here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-8 bg-white border-t border-gray-200">
+            <div class="container mx-auto px-6 text-center text-gray-600">
+                © <span class="footer-year">2024</span> Nitin Mittapally. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/resume.js"></script>
+    <script>
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('show');
+        });
+
+        // Update footer year
+        document.querySelector('.footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

@@ -1,12 +1,25 @@
 // Function to create a blog card
 function createBlogCard(blog) {
     return `
-        <div class="blog-card p-6 rounded-xl cursor-pointer bg-white shadow-sm hover:shadow-md transition-shadow" data-blog="${blog.id}">
-            <h3 class="text-xl font-semibold mb-3">${blog.title}</h3>
-            <p class="text-gray-600 mb-4">${blog.description}</p>
-            <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500">${blog.date}</span>
-                <span class="text-sm text-blue-600">Featured</span>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col" data-blog="${blog.id}">
+            <div class="p-6 flex-grow">
+                <h3 class="text-xl font-semibold mb-2">${blog.title}</h3>
+                <p class="text-gray-600 mb-4 line-clamp-3">${blog.description}</p>
+                ${blog.tags && blog.tags.length > 0 ? `
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${blog.tags.map(tag => `
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">${tag}</span>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+            <div class="px-6 py-4 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                    <a href="${blog.fullUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                        Read More
+                    </a>
+                    <span class="text-sm text-gray-500">${blog.date}</span>
+                </div>
             </div>
         </div>
     `;
@@ -72,5 +85,55 @@ async function renderFeaturedBlogs() {
     }
 }
 
+// Function to fetch and display resume summary
+async function fetchResumeSummary() {
+    try {
+        console.log('Fetching resume summary...');
+        const response = await fetch('data/resume.yaml');
+        if (!response.ok) {
+            throw new Error('Failed to fetch resume data');
+        }
+        const yamlText = await response.text();
+        console.log('YAML text:', yamlText);
+        const data = jsyaml.load(yamlText);
+        console.log('Parsed YAML data:', data);
+        const summaryElement = document.getElementById('resume-summary');
+        console.log('Summary element:', summaryElement);
+        if (summaryElement && data.summary) {
+            summaryElement.textContent = data.summary;
+            console.log('Updated summary text:', data.summary);
+        } else {
+            console.error('Summary element or data not found:', { element: summaryElement, summary: data.summary });
+        }
+    } catch (error) {
+        console.error('Error fetching resume summary:', error);
+    }
+}
+
+// Function to render featured projects
+async function renderFeaturedProjects() {
+    try {
+        const featuredContainer = document.getElementById('featured-projects');
+        if (!featuredContainer) return;
+
+        const projectData = await fetchProjects();
+        featuredContainer.innerHTML = projectData.featured.map(createProjectCard).join('');
+
+        // Add click event listeners to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectName = card.querySelector('h3').textContent;
+                window.location.href = `reader.html?type=project&id=${projectName}`;
+            });
+        });
+    } catch (error) {
+        console.error('Error rendering featured projects:', error);
+    }
+}
+
 // Initialize when the page loads
-document.addEventListener('DOMContentLoaded', renderFeaturedBlogs); 
+document.addEventListener('DOMContentLoaded', () => {
+    renderFeaturedBlogs();
+    fetchResumeSummary();
+    renderFeaturedProjects();
+}); 

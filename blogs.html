@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogs - Nitin Mittapally</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Mobile menu */
+        #mobile-menu {
+            display: none;
+        }
+
+        #mobile-menu.show {
+            display: block;
+        }
+    </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-gray-50">
     <!-- Header -->
     <header class="fixed w-full bg-white shadow-sm z-50">
         <div class="container mx-auto px-6 py-4">
@@ -18,18 +27,32 @@
                 <div class="text-2xl font-bold text-gray-900">Nitin Mittapally</div>
                 <nav class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a href="projects.html" class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
-                    <a href="blogs.html" class="text-gray-900 font-medium">Blogs</a>
-                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
-                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                    <a href="index.html#projects"
+                        class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="index.html#blogs" class="text-gray-900 font-medium">Blogs</a>
+                    <a href="index.html#resume" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
                 </nav>
-                <button class="md:hidden">
+                <button id="mobile-menu-button" class="md:hidden">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        <path class="mobile-menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path class="mobile-menu-close hidden" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="md:hidden">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                    <a href="index.html#projects"
+                        class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="index.html#blogs" class="text-gray-900 font-medium">Blogs</a>
+                    <a href="index.html#resume" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                </div>
+            </nav>
         </div>
     </header>
 
@@ -39,7 +62,7 @@
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">Featured Blogs</h2>
-                <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Featured blogs will be inserted here -->
                 </div>
             </div>
@@ -49,7 +72,7 @@
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl font-bold text-center mb-12">All Blogs</h2>
-                <div id="all-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="all-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- All blogs will be inserted here -->
                 </div>
             </div>
@@ -63,8 +86,10 @@
         </div>
     </footer>
 
+    <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="js/common.js"></script>
-    <script src="blogs/blogs.js"></script>
+    <script src="js/blogs.js"></script>
 </body>
 
 </html>

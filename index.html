@@ -42,7 +42,11 @@
             exploring Generative AI, Transformers, and model fine-tuning.
           </p>
           <div class="flex space-x-4">
-            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="#projects" class="btn-primary inline-flex items-center">View Projects
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+            </a>
             <a href="#contact" class="btn-outline">Contact Me</a>
           </div>
         </div>
@@ -59,29 +63,8 @@
   <section id="projects" class="py-20 bg-white">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="project-card p-6 rounded-xl cursor-pointer"
-          data-github="https://github.com/mittapallynitin/DocuAnswer">
-          <h3 class="text-xl font-semibold mb-3">DocuAnswer – LangChain RAG App</h3>
-          <p class="text-gray-600 mb-4">RAG system using FAISS + GPT-4o-mini. Deployed with Streamlit and Flask.</p>
-          <a href="https://github.com/mittapallynitin/DocuAnswer" class="text-blue-600 hover:text-blue-800"
-            target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View Code →</a>
-        </div>
-        <div class="project-card p-6 rounded-xl cursor-pointer"
-          data-github="https://github.com/mittapallynitin/EmotionDetection">
-          <h3 class="text-xl font-semibold mb-3">Emotion Detection</h3>
-          <p class="text-gray-600 mb-4">Text classification using TinyBERT. Achieved >98% F1 on imbalanced data.</p>
-          <a href="https://github.com/mittapallynitin/EmotionDetection" class="text-blue-600 hover:text-blue-800"
-            target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View Code →</a>
-        </div>
-        <div class="project-card p-6 rounded-xl cursor-pointer"
-          data-github="https://github.com/mittapallynitin/casual-languge-modeling">
-          <h3 class="text-xl font-semibold mb-3">Causal Language Modeling</h3>
-          <p class="text-gray-600 mb-4">Custom tokenizer & GPT-2 model trained on CodeSearchNet for Python generation.
-          </p>
-          <a href="https://github.com/mittapallynitin/casual-languge-modeling" class="text-blue-600 hover:text-blue-800"
-            target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View Code →</a>
-        </div>
+      <div id="featured-projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Projects will be dynamically inserted here -->
       </div>
       <div class="text-center mt-12">
         <a href="projects.html" class="btn-primary inline-flex items-center">
@@ -97,19 +80,17 @@
   <!-- Blogs Section -->
   <section id="blogs" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
-      <div class="blogs-section">
-        <h2 class="text-3xl font-bold mb-8">Featured Blogs</h2>
-        <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <!-- Featured blogs will be inserted here -->
-        </div>
-        <div class="text-center">
-          <a href="blogs.html" class="btn-primary inline-flex items-center">
-            Show More Blogs
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
+      <h2 class="text-3xl font-bold text-center mb-12">Featured Blogs</h2>
+      <div id="featured-blogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Featured blogs will be inserted here -->
+      </div>
+      <div class="text-center mt-12">
+        <a href="blogs.html" class="btn-primary inline-flex items-center">
+          Show More Blogs
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
@@ -119,13 +100,17 @@
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">Resume Snapshot</h2>
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-gray-600 mb-8">
-          Senior Data Scientist at Fractal Analytics (Client: Google). Expert in LLMs, NLP, and scalable ML pipelines.
-          Strong experience across Google, P&G, DBS, and Oracle.
+        <p id="resume-summary" class="text-gray-600 mb-8">
+          Loading resume summary...
         </p>
         <div class="flex justify-center space-x-4">
-          <a href="mailto:mittapally.nitin@gmail.com" class="btn-primary">Email Me</a>
           <a href="https://www.linkedin.com/in/nitinmittapally/" class="btn-outline">LinkedIn</a>
+          <a href="resume.html" class="btn-primary inline-flex items-center">
+            View Full Resume
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -176,6 +161,7 @@
   </footer>
 
   <!-- Load scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="js/common.js"></script>
   <script src="js/projects.js"></script>

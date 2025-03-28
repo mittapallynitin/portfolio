@@ -1,0 +1,158 @@
+personal_info:
+  name: "Nitin Mittapally"
+  title: "Machine Learning Engineer / Data Scientist"
+  email: "mittapallynitin@gmail.com"
+  location: "New York, NY"
+  github: "https://github.com/mittapallynitin"
+  linkedin: "https://linkedin.com/in/nitinmittapally"
+
+summary: >
+  Machine Learning Engineer with expertise in building and deploying scalable ML pipelines, LLM applications, and data-driven solutions across industries like tech and finance. 
+  Skilled in natural language processing, deep learning, software engineering, and cloud platforms. Proven track record of enhancing product capabilities and user experience using cutting-edge AI techniques.
+
+experience:
+  - company: "Fractal Analytics"
+    position: "Senior Data Scientist"
+    location: "New York, NY"
+    duration: "Apr 2023 – Present"
+    description: [
+      "Developed and deployed large-scale LLM-based feature extraction pipeline reducing 20+ man-hours per user request",
+      "Designed scalable BERT-based topic modeling pipeline to uncover chat-based insights for Google hardware",
+      "Engineered foundational framework for prompt engineering, optimizing performance across teams",
+      "Integrated FAISS for semantic transcript search, enhancing filtering precision",
+      "Built classification and clustering models to increase self-service resolutions by 25%",
+      "Automated customer satisfaction reporting, reducing effort by 30%",
+      "Conducted analysis for Google Pixel Tablet launch and competitor review mining for Pixel Buds and Watch",
+      "Improved Help Center documentation using prompt engineering and few-shot learning",
+      "Reduced misrouted support calls with funnel and text analysis, saving ~$15 per contact"
+    ]
+    technologies: ["Python", "PyTorch", "Transformers", "scikit-learn", "FAISS", "Hugging Face", "LangChain", "OpenAI", "Flask"]
+
+  - company: "Fractal Analytics"
+    position: "Data Scientist"
+    location: "New York, NY"
+    duration: "Sep 2021 – Apr 2023"
+    description: [
+      "Implemented BERTopic to identify topics and subtopics in global support ticket data",
+      "Built scalable data processing pipeline with NER and lemmatization for topic modeling",
+      "Consolidated knowledge base content, reducing redundancy by 40%",
+      "Built dashboard in Power BI for topic trend visualization across user journeys",
+      "Engineered feature sets from 38M retail transaction records for delivery time prediction model with 16% accuracy boost",
+    ]
+    technologies: ["Python", "BERTopic", "NER", "Power BI", "Random Forest", "Data Preprocessing"]
+
+  - company: "DBS Bank"
+    position: "Data Scientist"
+    location: "Hyderabad, India"
+    duration: "Sep 2019 – Dec 2020"
+    description: [
+      "Designed targeted marketing models using logistic regression, random forest, XGBoost",
+      "Performed A/B testing yielding ~45% lift in user acquisition",
+      "Created automated Tableau dashboards for sales and KPIs",
+      "Built classification models for anomaly detection, reducing false positives by 28%",
+      "Developed pipelines to fetch and process Bloomberg data for operational use"
+    ]
+    technologies: ["Python", "XGBoost", "Tableau", "SQL", "Bloomberg API"]
+
+  - company: "Oracle"
+    position: "Associate Software Developer"
+    location: "Hyderabad, India"
+    duration: "Jan 2017 – Sep 2019"
+    description: [  
+      "Migrated Oracle’s Property Management System to cloud and built ~40 microservices",
+      "Improved UI and reduced task time by 30% through UX enhancements",
+      "Built NLP-based chatbot “OpBot” for kiosk check-ins",
+      "Developed automation testing frameworks saving 40% of testing time",
+      "Redesigned CI/CD pipelines reducing deployment time by 50%"
+    ]
+    technologies: ["Python", "Django", "React", "PostgreSQL", "Oracle Cloud", "Kubernetes", "Jenkins"]
+
+education:
+  - institution: "Trine University"
+    degree: "Master of Business Administration (MBA)"
+    location: "Reston, VA"
+    duration: "Present"
+    relevant_coursework: ["Product Development", "Strategic Marketing", "Quantitative Methods"]
+
+  - institution: "University of Cincinnati"
+    degree: "Master of Science in Business Analytics"
+    location: "Cincinnati, OH"
+    duration: "2021"
+    relevant_coursework: ["Machine Learning", "Deep Learning", "Natural Language Processing"]
+
+  - institution: "Osmania University"
+    degree: "Bachelor of Engineering in Electronics and Communication"
+    location: "Hyderabad, India"
+    duration: "2013 - 2017"
+    relevant_coursework: ["Data Structures", "Algorithms", "Computer Vision"]
+
+certifications:
+  - name: "AWS Certified Machine Learning - Specialty"
+    issuer: "Amazon Web Services"
+    date: "2023"
+    credential_id: "AWS-123456"
+
+  - name: "Deep Learning Specialization"
+    issuer: "Coursera"
+    date: "2022"
+    credential_id: "DL-789012"
+
+  - name: "Generative AI with Large Language Models"
+    issuer: "DeepLearning.AI"
+    date: "2023"
+
+  - name: "End-to-End Machine Learning with TensorFlow on Google Cloud"
+    issuer: "Google Cloud"
+    date: "2023"
+
+  - name: "Getting Started with Large Language Models"
+    issuer: "Analytics Vidhya"
+    date: "2023"
+
+  - name: "Neural Networks and Deep Learning"
+    issuer: "DeepLearning.AI"
+    date: "2022"
+
+skills:
+  technical:
+    - category: "Programming Languages"
+      items: ["Python", "R", "SQL", "SAS", "Java", "MATLAB", "Scala"]
+    - category: "Machine Learning & NLP"
+      items: ["scikit-learn", "PyTorch", "TensorFlow", "Transformers", "LangChain", "Prompt Engineering", "LLM Fine Tuning"]
+    - category: "Tools & Technologies"
+      items: ["Git", "Docker", "AWS", "Google Cloud", "Databricks", "Streamlit", "Flask", "Jenkins"]
+    - category: "Databases"
+      items: ["PostgreSQL", "MongoDB", "MySQL", "Oracle DB", "BigQuery", "FAISS"]
+
+  soft:
+    - "Team Leadership"
+    - "Project Management"
+    - "Problem Solving"
+    - "Technical Writing"
+
+projects:
+  - name: "DocuAnswer"
+    description: "LangChain & Streamlit-based Retrieval-Augmented Generation (RAG) system for document Q&A"
+    technologies: ["Python", "LangChain", "FAISS", "OpenAI", "Streamlit", "Flask"]
+    link: "https://github.com/mittapallynitin/DocuAnswer"
+
+  - name: "Emotion Detection – Multi-Class Text Classification"
+    description: "Built a PyTorch-based emotion classifier using TinyBERT on 450K examples, achieving F1 > 98%"
+    technologies: ["Python", "Hugging Face", "PyTorch"]
+    link: "https://github.com/mittapallynitin/EmotionDetection"
+
+  - name: "Causal Language Modeling – Code Generation"
+    description: "Trained a GPT-2 model on CodeSearchNet (~450K functions) with custom BPE tokenizer for Python code"
+    technologies: ["Python", "Transformers", "Hugging Face"]
+    link: "https://github.com/mittapallynitin/CodeGenLM"
+
+  - name: "Attention Is All You Need – Paper Implementation"
+    description: "Implemented key components of Transformer architecture including multi-head attention and layer norm"
+    technologies: ["Python", "NumPy"]
+    link: "https://github.com/mittapallynitin/TransformerPaper"
+
+languages:
+  - language: "English"
+    proficiency: "Native"
+  - language: "Spanish"
+    proficiency: "Intermediate"
