@@ -12,8 +12,7 @@
     <style>
         /* Article styles */
         .article-content {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
             padding: 2rem;
         }
 
@@ -137,6 +136,21 @@
             font-size: 0.875rem;
             color: #4b5563;
         }
+
+        /* Header styles */
+        .name-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Reader specific styles */
+        .reader-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -145,11 +159,10 @@
     <header class="fixed w-full bg-white shadow-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-gray-900">Nitin Mittapally</div>
+                <a class="text-2xl font-bold text-gray-900" href="index.html">Nitin Mittapally</a>
                 <nav class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a href="index.html#projects"
-                        class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="index.html#projects" class="text-gray-900 font-medium">Projects</a>
                     <a href="index.html#blogs" class="text-gray-600 hover:text-gray-900 transition-colors">Blogs</a>
                     <a href="index.html#resume" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
                     <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
@@ -167,8 +180,7 @@
             <nav id="mobile-menu" class="md:hidden">
                 <div class="flex flex-col space-y-4 pt-4">
                     <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a href="index.html#projects"
-                        class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+                    <a href="index.html#projects" class="text-gray-900 font-medium">Projects</a>
                     <a href="index.html#blogs" class="text-gray-600 hover:text-gray-900 transition-colors">Blogs</a>
                     <a href="index.html#resume" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
                     <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
@@ -178,21 +190,24 @@
     </header>
 
     <!-- Main Content -->
-    <main class="pt-24">
-        <article class="article-content">
-            <header class="mb-8">
-                <h1 id="article-title" class="text-4xl font-bold mb-4"></h1>
-                <div class="flex items-center justify-between">
-                    <span id="article-date" class="text-gray-600"></span>
-                    <div id="article-tags" class="flex flex-wrap gap-2">
-                        <!-- Tags will be inserted here -->
+    <main class="pt-32 pb-12 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="reader-container">
+                <article class="article-content bg-white rounded-lg shadow-sm">
+                    <h1 id="article-title" class="text-4xl font-bold mb-4"></h1>
+                    <div class="flex items-center justify-between">
+                        <span id="article-date" class="text-gray-600"></span>
+                        <div id="article-tags" class="flex flex-wrap gap-2">
+                            <!-- Tags will be inserted here -->
+                        </div>
                     </div>
-                </div>
-            </header>
-            <div id="article-content" class="prose prose-lg max-w-none">
-                <!-- Content will be inserted here -->
+
+                    <div id="article-content" class="prose prose-lg max-w-none">
+                        <!-- Content will be inserted here -->
+                    </div>
+                </article>
             </div>
-        </article>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -203,6 +218,7 @@
     </footer>
 
     <!-- Load scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/reader.js"></script>
 </body>

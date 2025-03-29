@@ -28,14 +28,14 @@ async function fetchProjectReadme(projectName) {
 }
 
 // Function to fetch blog content
-async function fetchBlogContent(blogSlug) {
+async function fetchBlogContent(blogId) {
     try {
         const response = await fetch(`https://raw.githubusercontent.com/mittapallynitin/blogs/main/blogs.json`);
         if (!response.ok) {
             throw new Error('Failed to fetch blog data');
         }
         const blogData = await response.json();
-        const blog = blogData.blogs.find(b => b.slug === blogSlug);
+        const blog = blogData.blogs.find(b => b.id === blogId);
 
         if (!blog) {
             throw new Error('Blog not found');
@@ -69,9 +69,6 @@ function renderTags(tags) {
 
 // Function to render article
 function renderArticle(data) {
-    document.getElementById('article-title').textContent = data.title;
-    document.getElementById('article-date').textContent = data.date;
-    renderTags(data.tags);
     document.getElementById('article-content').innerHTML = data.content;
 }
 
