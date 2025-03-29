@@ -35,13 +35,15 @@ async function fetchBlogContent(blogId) {
             throw new Error('Failed to fetch blog data');
         }
         const blogData = await response.json();
+
         const blog = blogData.blogs.find(b => b.id === blogId);
+        console.log('Fetched blog data:', blog); // Log the fetched blog for debugging
 
         if (!blog) {
             throw new Error('Blog not found');
         }
-
-        const contentResponse = await fetch(blog.fullUrl);
+        const blog_url = blogData.url_root + blog.github
+        const contentResponse = await fetch(blog_url);
         if (!contentResponse.ok) {
             throw new Error('Failed to fetch blog content');
         }

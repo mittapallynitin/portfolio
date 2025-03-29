@@ -19,8 +19,8 @@ function createBlogCard(blog) {
             </div>
             <div class="px-6 py-4 border-t border-gray-100">
                 <div class="flex justify-between items-center">
-                    <a href="${blog.fullUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
-                        Read More
+                    <a href="reader.html?type=blog&id=${blog.id}" class="text-blue-600 hover:text-blue-800 font-medium">
+                        Read More →
                     </a>
                     <span class="text-sm text-gray-500">${blog.date}</span>
                 </div>
@@ -39,17 +39,10 @@ async function fetchBlogs() {
         const blogData = await response.json();
         console.log('Fetched blog data:', blogData);
 
-        // Add full URL to each blog
-        const blogsWithUrls = blogData.blogs.map(blog => ({
-            ...blog,
-            fullUrl: `${blogData.url_root}${blog.github}`
-        }));
-        console.log('Blogs with URLs:', blogsWithUrls);
-
         // Separate featured and non-featured blogs
         return {
-            featured: blogsWithUrls.filter(blog => blog.featured),
-            all: blogsWithUrls.filter(blog => !blog.featured)
+            featured: blogData.blogs.filter(blog => blog.featured),
+            all: blogData.blogs.filter(blog => !blog.featured)
         };
     } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -79,28 +72,23 @@ async function renderBlogs() {
             allBlogsContainer.innerHTML = blogData.all.map(createBlogCard).join('');
         }
 
-        // Add click event listeners to blog cards
-        document.querySelectorAll('#featured-blogs .bg-white, #all-blogs .bg-white').forEach(card => {
-            card.addEventListener('click', (e) => {
-                // Don't trigger if clicking on the Read More link
-                if (!e.target.closest('a')) {
-                    const blogId = card.dataset.blog;
-                    console.log('Clicked blog ID:', blogId);
+        // // Add click event listeners to blog cards
+        // document.querySelectorAll('#featured-blogs .bg-white, #all-blogs .bg-white').forEach(card => {
+        //     card.addEventListener('click', (e) => {
+        //         // Don't trigger if clicking on the Read More link
+        //         if (!e.target.closest('a')) {
+        //             const blogId = card.dataset.blog;
+        //             console.log('Clicked blog ID:', blogId);
 
-                    if (blogId) {
-                        const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
-                        console.log('Found blog:', blog);
+        //             if (blogId) {
+        //                 const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
+        //                 console.log('Found blog:', blog);
 
-                        if (blog) {
-                            console.log('Redirecting to:', blog.fullUrl);
-                            window.open(blog.fullUrl, '_blank');
-                        } else {
-                            console.error('Blog not found:', blogId);
-                        }
-                    }
-                }
-            });
-        });
+
+        //             }
+        //         }
+        //     });
+        // });
     } catch (error) {
         console.error('Error rendering blogs:', error);
         const errorMessage = document.createElement('div');
