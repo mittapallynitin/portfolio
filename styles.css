@@ -38,9 +38,9 @@
 
 /* Base styles */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
