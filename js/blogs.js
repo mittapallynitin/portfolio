@@ -5,14 +5,14 @@ let allBlogsContainer;
 // Function to create a blog card
 function createBlogCard(blog) {
     return `
-        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col" data-blog="${blog.id}">
-            <div class="p-6 flex-grow">
-                <h3 class="text-xl font-semibold mb-2">${blog.title}</h3>
+        <div class="bg-white p-6 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col" data-blog="${blog.id}">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-3">${blog.title}</h3>
                 <p class="text-gray-600 mb-4 line-clamp-3">${blog.description}</p>
                 ${blog.tags && blog.tags.length > 0 ? `
                     <div class="flex flex-wrap gap-2 mb-4">
                         ${blog.tags.map(tag => `
-                            <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">${tag}</span>
+                            <span class="px-2 py-1 bg-gray-100 rounded-full text-sm">${tag}</span>
                         `).join('')}
                     </div>
                 ` : ''}
@@ -72,23 +72,20 @@ async function renderBlogs() {
             allBlogsContainer.innerHTML = blogData.all.map(createBlogCard).join('');
         }
 
-        // // Add click event listeners to blog cards
-        // document.querySelectorAll('#featured-blogs .bg-white, #all-blogs .bg-white').forEach(card => {
-        //     card.addEventListener('click', (e) => {
-        //         // Don't trigger if clicking on the Read More link
-        //         if (!e.target.closest('a')) {
-        //             const blogId = card.dataset.blog;
-        //             console.log('Clicked blog ID:', blogId);
+        // Add click event listeners to blog cards
+        document.querySelectorAll('#featured-blogs .bg-white, #all-blogs .bg-white').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't trigger if clicking on the Read More link
+                if (!e.target.closest('a')) {
+                    const blogId = card.dataset.blog;
 
-        //             if (blogId) {
-        //                 const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
-        //                 console.log('Found blog:', blog);
-
-
-        //             }
-        //         }
-        //     });
-        // });
+                    if (blogId) {
+                        const blog = [...blogData.featured, ...blogData.all].find(b => b.id === blogId);
+                        console.log('Found blog:', blog);
+                    }
+                }
+            });
+        });
     } catch (error) {
         console.error('Error rendering blogs:', error);
         const errorMessage = document.createElement('div');
