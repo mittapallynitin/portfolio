@@ -9,7 +9,13 @@ async function fetchResumeData() {
 // Function to render personal info
 function renderPersonalInfo(data) {
     const { personal_info } = data;
-    document.getElementById('resume-name').textContent = personal_info.name;
+    const [firstName, ...lastNameParts] = personal_info.name.split(' ');
+    const lastName = lastNameParts.join(' ');
+
+    document.getElementById('resume-name').innerHTML = `
+        <span class="font-normal">${firstName}</span>
+        <span class="font-normal">${lastName}</span>
+    `;
     document.getElementById('resume-title').textContent = personal_info.title;
 }
 
@@ -24,12 +30,14 @@ function renderExperience(data) {
     container.innerHTML = data.experience.map(exp => {
         return `
             <div class="experience-item">
+            <div class="flex justify-between items-center">
                 <div class="job-title">${exp.position}</div>
-                <div class="company">${exp.company}</div>
                 <div class="duration">${exp.duration}</div>
-                <ul class="task-list">
-                    ${exp.description.map(task => `<li>${task}</li>`).join('')}
-                </ul>
+            </div>
+            <div class="company">${exp.company}</div>
+            <ul class="task-list">
+                ${exp.description.map(task => `<li>${task}</li>`).join('')}
+            </ul>
             </div>
         `;
     }).join('');
@@ -40,14 +48,11 @@ function renderEducation(data) {
     const container = document.getElementById('resume-education');
     container.innerHTML = data.education.map(edu => `
         <div class="experience-item">
-            <div class="job-title">${edu.degree}</div>
-            <div class="company">${edu.institution}</div>
-            <div class="duration">${edu.duration}</div>
-            <div class="text-sm text-gray-600 mb-2">GPA: ${edu.gpa}</div>
-            <div class="text-sm text-gray-600">
-                <span class="font-medium">Relevant Coursework:</span><br>
-                ${edu.relevant_coursework.join(' • ')}
+            <div class="flex justify-between items-center">
+                <div class="job-title">${edu.degree}</div> 
+                <div class="duration">${edu.duration}</div>
             </div>
+            <div class="company">${edu.institution}</div>
         </div>
     `).join('');
 }
@@ -59,7 +64,7 @@ function renderSkills(data) {
 
     const skillsHtml = skills.technical.map(category => `
         <div class="skill-category">
-            <div class="skill-category-title">${category.category}</div>
+            <div class="skill-category-title font-semibold">${category.category}</div>
             <div class="skill-list">${category.items.join(' • ')}</div>
         </div>
     `).join('');
@@ -67,7 +72,7 @@ function renderSkills(data) {
     // Add soft skills at the end
     container.innerHTML = skillsHtml + `
         <div class="skill-category">
-            <div class="skill-category-title">Soft Skills</div>
+            <div class="skill-category-title font-semibold">Soft Skills</div>
             <div class="skill-list">${skills.soft.join(' • ')}</div>
         </div>
     `;
@@ -79,11 +84,7 @@ function renderCertifications(data) {
     container.innerHTML = data.certifications.map(cert => `
         <div class="experience-item">
             <div class="job-title">${cert.name}</div>
-            <div class="company">${cert.issuer}</div>
-            <div class="duration">${cert.date}</div>
-            <div class="text-sm text-gray-600">
-                <span class="font-medium">Credential ID:</span> ${cert.credential_id}
-            </div>
+            <div class="company">${cert.issuer} - ${cert.date}</div>
         </div>
     `).join('');
 }

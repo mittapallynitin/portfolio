@@ -72,13 +72,13 @@ education:
   - institution: "Trine University"
     degree: "Master of Business Administration (MBA)"
     location: "Reston, VA"
-    duration: "Present"
+    duration: "2025 - Present"
     relevant_coursework: ["Product Development", "Strategic Marketing", "Quantitative Methods"]
 
   - institution: "University of Cincinnati"
     degree: "Master of Science in Business Analytics"
     location: "Cincinnati, OH"
-    duration: "2021"
+    duration: "2021 - 2021"
     relevant_coursework: ["Machine Learning", "Deep Learning", "Natural Language Processing"]
 
   - institution: "Osmania University"
