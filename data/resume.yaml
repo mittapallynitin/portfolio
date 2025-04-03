@@ -19,7 +19,7 @@ experience:
       "Developed and deployed large-scale LLM-based feature extraction pipeline reducing 20+ man-hours per user request",
       "Designed scalable BERT-based topic modeling pipeline to uncover chat-based insights for Google hardware",
       "Engineered foundational framework for prompt engineering, optimizing performance across teams",
-      "Fine-Tune BERT model for all the Google Products on customer support data",
+      "Fine-Tune BERT model for all the Google Products on customer support data using HuggingFace library",
       "Integrated FAISS for semantic transcript search, enhancing filtering precision",
       "Built classification and clustering models to increase self-service resolutions by 25%",
       "Automated customer satisfaction reporting, reducing effort by 30%",
