@@ -6,7 +6,7 @@ function createBlogCard(blog) {
         blog.tags = [];
     }
     return `
-        <div class="blog-card p-6 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full">
+        <div class="blog-card p-6 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full" data-blog="${blog.id}">
             <div class="flex-grow">
                 <h3 class="text-xl font-semibold mb-3">${blog.title}</h3>
                 <p class="text-gray-600 mb-4 line-clamp-3">${truncateText(blog.description || 'No description available.')}</p>
@@ -69,9 +69,16 @@ async function renderBlogs() {
 
         // Add click event listeners to blog cards
         document.querySelectorAll('.blog-card').forEach(card => {
+            console.log('card');
+            console.log(card);
             card.addEventListener('click', (e) => {
-                const blogId = card.dataset.blog;
-                window.location.href = `reader.html?type=blog&id=${blogId}`;
+                // Don't trigger if clicking on the Read More link
+                if (!e.target.closest('a')) {
+                    const blogId = card.dataset.blog;
+                    if (blogId) {
+                        window.location.href = `reader.html?type=blog&id=${blogId}`;
+                    }
+                }
             });
         });
     } catch (error) {
