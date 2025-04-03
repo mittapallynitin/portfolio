@@ -1,28 +1,9 @@
 // Function to fetch and parse YAML data
 async function fetchResumeData() {
-    try {
-        console.log('Attempting to fetch resume data...');
-        const response = await fetch('./data/resume.yaml');
-        console.log('Response status:', response.status);
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch resume data: ${response.status} ${response.statusText}`);
-        }
-
-        const yamlText = await response.text();
-        console.log('YAML data received:', yamlText);
-
-        if (!window.jsyaml) {
-            throw new Error('jsyaml library not loaded');
-        }
-
-        const data = jsyaml.load(yamlText);
-        console.log('Parsed data:', data);
-        return data;
-    } catch (error) {
-        console.error('Error in fetchResumeData:', error);
-        throw error;
-    }
+    const response = await fetch('./data/resume.yaml');
+    const yamlText = await response.text();
+    const data = jsyaml.load(yamlText);
+    return data;
 }
 
 // Function to render personal info

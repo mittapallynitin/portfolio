@@ -275,7 +275,6 @@ header {
 
 .btn-outline:hover {
     transform: translateY(-2px);
-    color: var(--white);
     box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
 }
 

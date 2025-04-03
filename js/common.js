@@ -1,5 +1,21 @@
 // Common functionality for all pages
 
+// Function to truncate text
+function truncateText(text, maxLength = 100) {
+    if (text.length <= maxLength) return text;
+
+    let truncated = text.substring(0, maxLength);
+
+    // Find the last space within the limit to avoid cutting words
+    let lastSpaceIndex = truncated.lastIndexOf(' ');
+
+    if (lastSpaceIndex > 0) {
+        truncated = truncated.substring(0, lastSpaceIndex);
+    }
+
+    return truncated + '...';
+}
+
 // Function to update footer year
 function updateFooterYear() {
     document.querySelector('.footer-year').textContent = new Date().getFullYear();

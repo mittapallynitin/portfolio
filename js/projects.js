@@ -9,11 +9,6 @@ const featuredRepos = [
 let featuredContainer;
 let allProjectsContainer;
 
-// Function to truncate text
-function truncateText(text, maxLength = 100) {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-}
 
 // Function to create a project card
 function createProjectCard(project) {
