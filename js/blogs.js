@@ -6,7 +6,7 @@ function createBlogCard(blog) {
         blog.tags = [];
     }
     return `
-        <div class="blog-card p-6 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full" data-blog="${blog.id}">
+        <div class="blog-card bg-white p-6 rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full" data-blog="${blog.id}">
             <div class="flex-grow">
                 <h3 class="text-xl font-semibold mb-3">${blog.title}</h3>
                 <p class="text-gray-600 mb-4 line-clamp-3">${truncateText(blog.description || 'No description available.')}</p>
