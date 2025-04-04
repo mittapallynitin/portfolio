@@ -93,9 +93,61 @@ section::before {
 }
 
 /* Contact section */
+#contact {
+    position: relative;
+    z-index: 1;
+}
+
 #contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.1), transparent 60%),
         radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 60%);
+    z-index: -1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 1;
+}
+
+#contact h2,
+#contact h3,
+#contact p,
+#contact a {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+}
+
+#contact .space-y-3 p {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+#contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: var(--secondary-color);
+}
+
+#contact .text-gray-600 {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+#contact .text-gray-600:hover {
+    color: var(--primary-color);
+    opacity: 1;
 }
 
 /* Ensure content stays above background */
