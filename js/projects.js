@@ -1,8 +1,8 @@
 // List of featured repository names
 const featuredRepos = [
-    'docuanswer',
-    'transformers',
-    'causal-languge-modeling'
+    'attention-paper',
+    'instructai',
+    'docuanswer'
 ];
 
 // Cache DOM elements
