@@ -12,7 +12,7 @@ function ProjectCard({ repo, index }: ProjectCardProps) {
       title={repo.name}
       description={repo.description ?? "No description available."}
       index={index}
-      className="bg-[#04211c]"
+      className="bg-[#0a3a30]"
       descriptionClassName="text-teal-500/90"
       footerExtra={
         <a

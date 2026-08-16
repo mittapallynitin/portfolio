@@ -1,7 +1,7 @@
 export const resume = {
   personalInfo: {
     name: "Nitin Mittapally",
-    title: "Machine Learning Engineer",
+    title: "AI Engineer",
     email: "mittapallynitin@gmail.com",
     location: "New York, NY",
     github: "https://github.com/mittapallynitin",
@@ -9,7 +9,7 @@ export const resume = {
   },
 
   summary:
-    "Machine Learning Engineer with expertise in building and deploying scalable ML pipelines, LLM applications, and data-driven solutions across industries like tech and finance. Skilled in natural language processing, deep learning, software engineering, and cloud platforms. Proven track record of enhancing product capabilities and user experience using cutting-edge AI techniques.",
+    "AI Engineer specializing in Agentic AI systems, LLM evaluation platforms, and RAG pipelines — building production-grade GenAI applications that scale from prototype to 100K+ requests/hour across finance and tech.",
 
   experience: [
     {
@@ -29,7 +29,17 @@ export const resume = {
         "Improved Help Center documentation using prompt engineering and few-shot learning",
         "Reduced misrouted support calls with funnel and text analysis, saving ~$15 per contact",
       ],
-      technologies: ["Python", "PyTorch", "Transformers", "scikit-learn", "FAISS", "Hugging Face", "LangChain", "OpenAI", "Flask"],
+      technologies: [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "scikit-learn",
+        "FAISS",
+        "Hugging Face",
+        "LangChain",
+        "OpenAI",
+        "Flask",
+      ],
     },
     {
       company: "Fractal Analytics",
@@ -43,7 +53,14 @@ export const resume = {
         "Built dashboard in Power BI for topic trend visualization across user journeys",
         "Engineered feature sets from 38M retail transaction records for delivery time prediction model with 16% accuracy boost",
       ],
-      technologies: ["Python", "BERTopic", "NER", "Power BI", "Random Forest", "Data Preprocessing"],
+      technologies: [
+        "Python",
+        "BERTopic",
+        "NER",
+        "Power BI",
+        "Random Forest",
+        "Data Preprocessing",
+      ],
     },
     {
       company: "DBS Bank",
@@ -71,7 +88,15 @@ export const resume = {
         "Developed automation testing frameworks saving 40% of testing time",
         "Redesigned CI/CD pipelines reducing deployment time by 50%",
       ],
-      technologies: ["Python", "Django", "React", "PostgreSQL", "Oracle Cloud", "Kubernetes", "Jenkins"],
+      technologies: [
+        "Python",
+        "Django",
+        "React",
+        "PostgreSQL",
+        "Oracle Cloud",
+        "Kubernetes",
+        "Jenkins",
+      ],
     },
   ],
 
@@ -81,14 +106,22 @@ export const resume = {
       degree: "Master of Business Administration (MBA)",
       location: "Reston, VA",
       duration: "2025 - Present",
-      relevantCoursework: ["Product Development", "Strategic Marketing", "Quantitative Methods"],
+      relevantCoursework: [
+        "Product Development",
+        "Strategic Marketing",
+        "Quantitative Methods",
+      ],
     },
     {
       institution: "University of Cincinnati",
       degree: "Master of Science in Business Analytics",
       location: "Cincinnati, OH",
       duration: "2021 - 2021",
-      relevantCoursework: ["Machine Learning", "Deep Learning", "Natural Language Processing"],
+      relevantCoursework: [
+        "Machine Learning",
+        "Deep Learning",
+        "Natural Language Processing",
+      ],
     },
     {
       institution: "Osmania University",
@@ -100,46 +133,124 @@ export const resume = {
   ],
 
   certifications: [
-    { name: "AWS Certified Machine Learning - Specialty", issuer: "Amazon Web Services", date: "2023", credentialId: "AWS-123456" },
-    { name: "Deep Learning Specialization", issuer: "Coursera", date: "2022", credentialId: "DL-789012" },
-    { name: "Generative AI with Large Language Models", issuer: "DeepLearning.AI", date: "2023" },
-    { name: "End-to-End Machine Learning with TensorFlow on Google Cloud", issuer: "Google Cloud", date: "2023" },
-    { name: "Getting Started with Large Language Models", issuer: "Analytics Vidhya", date: "2023" },
-    { name: "Neural Networks and Deep Learning", issuer: "DeepLearning.AI", date: "2022" },
+    {
+      name: "AWS Certified Machine Learning - Specialty",
+      issuer: "Amazon Web Services",
+      date: "2023",
+      credentialId: "AWS-123456",
+    },
+    {
+      name: "Deep Learning Specialization",
+      issuer: "Coursera",
+      date: "2022",
+      credentialId: "DL-789012",
+    },
+    {
+      name: "Generative AI with Large Language Models",
+      issuer: "DeepLearning.AI",
+      date: "2023",
+    },
+    {
+      name: "End-to-End Machine Learning with TensorFlow on Google Cloud",
+      issuer: "Google Cloud",
+      date: "2023",
+    },
+    {
+      name: "Getting Started with Large Language Models",
+      issuer: "Analytics Vidhya",
+      date: "2023",
+    },
+    {
+      name: "Neural Networks and Deep Learning",
+      issuer: "DeepLearning.AI",
+      date: "2022",
+    },
   ],
 
   skills: {
     technical: [
-      { category: "Programming Languages", items: ["Python", "R", "SQL", "SAS", "Java", "MATLAB", "Scala"] },
-      { category: "Machine Learning & NLP", items: ["scikit-learn", "PyTorch", "TensorFlow", "Transformers", "LangChain", "Prompt Engineering", "LLM Fine Tuning"] },
-      { category: "Tools & Technologies", items: ["Git", "Docker", "AWS", "Google Cloud", "Databricks", "Streamlit", "Flask", "Jenkins"] },
-      { category: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Oracle DB", "BigQuery", "FAISS"] },
+      {
+        category: "Programming Languages",
+        items: ["Python", "R", "SQL", "SAS", "Java", "MATLAB", "Scala"],
+      },
+      {
+        category: "Machine Learning & NLP",
+        items: [
+          "scikit-learn",
+          "PyTorch",
+          "TensorFlow",
+          "Transformers",
+          "LangChain",
+          "Prompt Engineering",
+          "LLM Fine Tuning",
+        ],
+      },
+      {
+        category: "Tools & Technologies",
+        items: [
+          "Git",
+          "Docker",
+          "AWS",
+          "Google Cloud",
+          "Databricks",
+          "Streamlit",
+          "Flask",
+          "Jenkins",
+        ],
+      },
+      {
+        category: "Databases",
+        items: [
+          "PostgreSQL",
+          "MongoDB",
+          "MySQL",
+          "Oracle DB",
+          "BigQuery",
+          "FAISS",
+        ],
+      },
     ],
-    soft: ["Team Leadership", "Project Management", "Problem Solving", "Technical Writing"],
+    soft: [
+      "Team Leadership",
+      "Project Management",
+      "Problem Solving",
+      "Technical Writing",
+    ],
   },
 
   projects: [
     {
       name: "DocuAnswer",
-      description: "LangChain & Streamlit-based Retrieval-Augmented Generation (RAG) system for document Q&A",
-      technologies: ["Python", "LangChain", "FAISS", "OpenAI", "Streamlit", "Flask"],
+      description:
+        "LangChain & Streamlit-based Retrieval-Augmented Generation (RAG) system for document Q&A",
+      technologies: [
+        "Python",
+        "LangChain",
+        "FAISS",
+        "OpenAI",
+        "Streamlit",
+        "Flask",
+      ],
       link: "https://github.com/mittapallynitin/DocuAnswer",
     },
     {
       name: "Emotion Detection – Multi-Class Text Classification",
-      description: "Built a PyTorch-based emotion classifier using TinyBERT on 450K examples, achieving F1 > 98%",
+      description:
+        "Built a PyTorch-based emotion classifier using TinyBERT on 450K examples, achieving F1 > 98%",
       technologies: ["Python", "Hugging Face", "PyTorch"],
       link: "https://github.com/mittapallynitin/EmotionDetection",
     },
     {
       name: "Causal Language Modeling – Code Generation",
-      description: "Trained a GPT-2 model on CodeSearchNet (~450K functions) with custom BPE tokenizer for Python code",
+      description:
+        "Trained a GPT-2 model on CodeSearchNet (~450K functions) with custom BPE tokenizer for Python code",
       technologies: ["Python", "Transformers", "Hugging Face"],
       link: "https://github.com/mittapallynitin/CodeGenLM",
     },
     {
       name: "Attention Is All You Need – Paper Implementation",
-      description: "Implemented key components of Transformer architecture including multi-head attention and layer norm",
+      description:
+        "Implemented key components of Transformer architecture including multi-head attention and layer norm",
       technologies: ["Python", "NumPy"],
       link: "https://github.com/mittapallynitin/TransformerPaper",
     },
@@ -149,9 +260,9 @@ export const resume = {
     { language: "English", proficiency: "Native" },
     { language: "Spanish", proficiency: "Intermediate" },
   ],
-} as const
+} as const;
 
-export type Resume = typeof resume
-export type ExperienceEntry = Resume["experience"][number]
-export type EducationEntry = Resume["education"][number]
-export type CertificationEntry = Resume["certifications"][number]
+export type Resume = typeof resume;
+export type ExperienceEntry = Resume["experience"][number];
+export type EducationEntry = Resume["education"][number];
+export type CertificationEntry = Resume["certifications"][number];

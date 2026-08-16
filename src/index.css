@@ -163,7 +163,12 @@
   }
 }
 
+@utility panel-tonal {
+  background-image: linear-gradient(155deg, oklch(1 0 0 / 8%) 0%, transparent 45%, oklch(0 0 0 / 14%) 100%);
+}
+
 @utility glass-card {
+  background-image: linear-gradient(155deg, oklch(1 0 0 / 8%) 0%, transparent 45%, oklch(0 0 0 / 14%) 100%);
   @apply border border-white/10 shadow-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:brightness-110;
 }
 

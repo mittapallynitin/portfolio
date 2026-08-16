@@ -12,7 +12,7 @@ function BlogCard({ blog, index }: BlogCardProps) {
       title={blog.title}
       description={blog.description}
       index={index}
-      className="bg-[#230d02]"
+      className="bg-[#4a2708]"
       descriptionClassName="text-amber-200/70"
       footerExtra
     />
