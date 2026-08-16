@@ -2,7 +2,7 @@ import { createGithubClient, type GithubClient } from "@/data/clients/githubClie
 import { useAsync, type AsyncState } from "@/hooks/useAsync"
 import type { GithubRepo } from "@/data/clients/types"
 
-const GITHUB_USERNAME = "mittapallynitin"
+export const GITHUB_USERNAME = "mittapallynitin"
 
 const defaultGithubClient = createGithubClient()
 

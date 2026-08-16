@@ -92,4 +92,4 @@ function ExperienceHighlight() {
   );
 }
 
-export { calculateYearsOfExperience, ExperienceHighlight };
+export { ExperienceHighlight };

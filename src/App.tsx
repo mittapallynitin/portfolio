@@ -1,6 +1,7 @@
 import { FeaturedBlog } from "@/features/blogs/FeaturedBlog";
 import { Hero } from "@/features/hero/Hero";
 import { FeaturedProject } from "@/features/projects/FeaturedProject";
+import { Reader } from "@/features/reader/Reader";
 import { ExperienceHighlight } from "@/features/resume/ExperienceHighlight";
 import { ResumeDownload } from "@/features/resume/ResumeDownload";
 
@@ -25,6 +26,7 @@ function App() {
           </div>
         </div>
       </main>
+      <Reader />
     </div>
   );
 }

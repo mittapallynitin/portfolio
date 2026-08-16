@@ -2,9 +2,14 @@ import type { BlogsIndexResponse, BlogSummary } from "@/data/clients/types"
 
 const BLOGS_INDEX_URL = "https://raw.githubusercontent.com/mittapallynitin/blogs/main/blogs.json"
 
+export interface BlogContent {
+  title: string
+  markdown: string
+}
+
 export interface BlogsClient {
   listBlogs(signal?: AbortSignal): Promise<BlogSummary[]>
-  getBlogContent(blog: BlogSummary, signal?: AbortSignal): Promise<string>
+  getBlogContent(blogId: string, signal?: AbortSignal): Promise<BlogContent>
 }
 
 export function createBlogsClient(fetchImpl: typeof fetch = fetch): BlogsClient {
@@ -17,17 +22,21 @@ export function createBlogsClient(fetchImpl: typeof fetch = fetch): BlogsClient 
       const data: BlogsIndexResponse = await res.json()
       return data.blogs
     },
-    async getBlogContent(blog, signal) {
+    async getBlogContent(blogId, signal) {
       const indexRes = await fetchImpl(BLOGS_INDEX_URL, { signal })
       if (!indexRes.ok) {
         throw new Error(`Blogs index error: ${indexRes.status}`)
       }
-      const { url_root } = (await indexRes.json()) as BlogsIndexResponse
+      const { url_root, blogs } = (await indexRes.json()) as BlogsIndexResponse
+      const blog = blogs.find((b) => b.id === blogId)
+      if (!blog) {
+        throw new Error(`Blog not found: ${blogId}`)
+      }
       const contentRes = await fetchImpl(`${url_root}${blog.github}`, { signal })
       if (!contentRes.ok) {
         throw new Error(`Blog content error: ${contentRes.status}`)
       }
-      return contentRes.text()
+      return { title: blog.title, markdown: await contentRes.text() }
     },
   }
 }
