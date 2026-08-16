@@ -209,6 +209,19 @@
   animation: blob-morph 15s linear infinite reverse;
 }
 
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-ticker {
+  animation: ticker-scroll 20s linear infinite;
+}
+
 .scrollbar-none {
   scrollbar-width: none;
 }

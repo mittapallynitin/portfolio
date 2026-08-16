@@ -1,98 +1,90 @@
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { AnimatePresence, motion } from "motion/react";
 
-import { resume, type ExperienceEntry } from "@/data/resume";
+import { resume } from "@/data/resume";
+import { useUrlState } from "@/hooks/useUrlState";
 import { staggerItemFromTop } from "@/lib/motion";
 
-const MONTH_ABBREVIATIONS: Record<string, number> = {
-  jan: 0,
-  feb: 1,
-  mar: 2,
-  apr: 3,
-  may: 4,
-  jun: 5,
-  jul: 6,
-  aug: 7,
-  sep: 8,
-  oct: 9,
-  nov: 10,
-  dec: 11,
-};
-
-function parseDurationStart(
-  duration: ExperienceEntry["duration"],
-): Date | null {
-  const [start] = duration.split("–").map((part) => part.trim());
-  const [monthAbbr, yearText] = start.split(" ");
-  const month = MONTH_ABBREVIATIONS[monthAbbr.slice(0, 3).toLowerCase()];
-  const year = Number(yearText);
-  if (month === undefined || Number.isNaN(year)) return null;
-  return new Date(year, month, 1);
-}
-
-function calculateYearsOfExperience(
-  experience: readonly ExperienceEntry[],
-  now = new Date(),
-): number {
-  const startDates = experience
-    .map((entry) => parseDurationStart(entry.duration))
-    .filter((date): date is Date => date !== null);
-  const earliest = startDates.reduce(
-    (min, date) => (date < min ? date : min),
-    startDates[0] ?? now,
-  );
-
-  let years = now.getFullYear() - earliest.getFullYear();
-  const hasNotHadAnniversaryYet =
-    now.getMonth() < earliest.getMonth() ||
-    (now.getMonth() === earliest.getMonth() &&
-      now.getDate() < earliest.getDate());
-  if (hasNotHadAnniversaryYet) years -= 1;
-
-  return Math.max(years, 0);
-}
-
-const HIGHLIGHT_TAGS = ["LLMs", "RAG", "AI/ML", "NLP"];
+const ROTATION_INTERVAL_MS = 4000;
 
 function ExperienceHighlight() {
-  const latest = resume.experience[0];
-  const years = calculateYearsOfExperience(resume.experience);
+  const [kpiIndex, setKpiIndex] = useState(0);
+  const [, setResume] = useUrlState("resume");
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setKpiIndex((index) => (index + 1) % resume.kpiHighlights.length);
+    }, ROTATION_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <motion.div
       variants={staggerItemFromTop}
-      className="panel-tonal flex h-full min-h-0 min-w-0 flex-col justify-between gap-2 overflow-hidden rounded-tl-[2rem] rounded-tr-[3rem] rounded-br-[2rem] rounded-bl-[2rem] bg-solar-experience p-6 text-solar-experience-foreground transition-shadow duration-300 hover:shadow-[0_0_60px_-8px_var(--solar-experience)]"
+      onClick={() => setResume("open")}
+      className="panel-tonal flex h-full min-h-0 min-w-0 cursor-pointer flex-col justify-between gap-2 overflow-hidden rounded-tl-[2rem] rounded-tr-[3rem] rounded-br-[2rem] rounded-bl-[2rem] bg-solar-experience p-6 text-solar-experience-foreground transition-shadow duration-300 hover:shadow-[0_0_60px_-8px_var(--solar-experience)]"
     >
-      <p className="text-[11px] font-medium tracking-wide text-solar-experience-foreground/70 uppercase">
-        Experience
-      </p>
-
-      <div className="flex items-baseline gap-2">
-        <span className="font-heading text-5xl font-bold sm:text-6xl">
-          {years}+
-        </span>
-        <span className="text-[11px] font-medium tracking-wide text-solar-experience-foreground/70 uppercase">
-          Years Experience
-        </span>
-      </div>
-
-      <div className="min-w-0">
-        <h3 className="truncate font-heading text-base font-medium">
-          {latest.position}
-        </h3>
-        <p className="truncate text-xs text-solar-experience-foreground/70">
-          {latest.company}
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-[11px] font-medium tracking-wide text-solar-experience-foreground/70 uppercase">
+          Experience
         </p>
+        <span className="group flex shrink-0 items-center gap-1 text-[11px] font-medium text-solar-experience-foreground/70">
+          View Full Resume
+          <HugeiconsIcon
+            icon={ArrowRight01Icon}
+            className="size-3.5 transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </span>
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
-        {HIGHLIGHT_TAGS.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-solar-experience-foreground/15 px-2.5 py-1 text-xs font-medium"
-          >
-            {tag}
-          </span>
-        ))}
+      <div className="flex min-h-10 items-center justify-between gap-3">
+        <h3 className="shrink-0 font-heading text-2xl font-semibold tracking-wide sm:text-3xl">
+          {resume.personalInfo.title}
+        </h3>
+
+        <div className="min-w-0 overflow-hidden text-right">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={kpiIndex}
+              initial={{ y: 24, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -24, opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <p className="truncate font-heading text-3xl font-bold tracking-wide sm:text-4xl">
+                {resume.kpiHighlights[kpiIndex].value}
+              </p>
+              <p className="truncate text-xs font-medium tracking-wide text-solar-experience-foreground/70 uppercase">
+                {resume.kpiHighlights[kpiIndex].label}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      <div
+        className="overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        }}
+      >
+        <div className="flex w-max animate-ticker gap-1.5 hover:paused">
+          {[...resume.expertiseTags, ...resume.expertiseTags].map(
+            (tag, index) => (
+              <span
+                key={`${tag}-${index}`}
+                className="shrink-0 rounded-full bg-solar-experience-foreground/15 px-2.5 py-1 text-xs font-medium"
+              >
+                {tag}
+              </span>
+            ),
+          )}
+        </div>
       </div>
     </motion.div>
   );

@@ -11,6 +11,32 @@ export const resume = {
   summary:
     "specializing in Agentic AI systems, LLM evaluation platforms, and RAG pipelines — building production-grade GenAI applications that scale from prototype to 100K+ requests/hour across finance and tech.",
 
+  kpiHighlights: [
+    { value: "8+", label: "Years in AI/ML" },
+    { value: "50+", label: "Hours Saved weekly" },
+    { value: "100K+", label: "Evals / Hour" },
+    { value: "28%", label: "Gen AI Cost Reduced" },
+    { value: "1M+", label: "Reviews Analyzed" },
+    { value: "150 RPS", label: "Sub-3s AI Response" },
+    { value: "500K Users", label: "Served DAU" },
+    { value: "98%", label: "Eval Ground Truth Accuracy" },
+  ],
+
+  expertiseTags: [
+    "Agentic AI",
+    "MCP",
+    "RAG",
+    "LLM Evaluation",
+    "Fine-Tuning",
+    "Prompt Engineering",
+    "LangChain",
+    "Vector Search",
+    "NLP",
+    "LLMs",
+    "GenAI",
+    "AI/ML",
+  ],
+
   experience: [
     {
       company: "Fractal Analytics",

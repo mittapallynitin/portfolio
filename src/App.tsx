@@ -6,6 +6,7 @@ import { FeaturedProject } from "@/features/projects/FeaturedProject";
 import { Reader } from "@/features/reader/Reader";
 import { ExperienceHighlight } from "@/features/resume/ExperienceHighlight";
 import { ResumeDownload } from "@/features/resume/ResumeDownload";
+import { ResumeOverlay } from "@/features/resume/ResumeOverlay";
 import { staggerContainer } from "@/lib/motion";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         </div>
       </motion.main>
       <Reader />
+      <ResumeOverlay />
     </div>
   );
 }
