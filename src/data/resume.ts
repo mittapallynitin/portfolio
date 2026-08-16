@@ -9,7 +9,7 @@ export const resume = {
   },
 
   summary:
-    "AI Engineer specializing in Agentic AI systems, LLM evaluation platforms, and RAG pipelines — building production-grade GenAI applications that scale from prototype to 100K+ requests/hour across finance and tech.",
+    "specializing in Agentic AI systems, LLM evaluation platforms, and RAG pipelines — building production-grade GenAI applications that scale from prototype to 100K+ requests/hour across finance and tech.",
 
   experience: [
     {

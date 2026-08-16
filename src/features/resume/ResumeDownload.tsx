@@ -1,4 +1,5 @@
 import resumeIcon from "@/assets/curriculum-resume-svgrepo-com.svg";
+import resumePdf from "@/data/Nitin Mittapally - Resume.pdf?url";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -21,16 +22,16 @@ function ResumeDownload() {
           Download my resume
         </h3>
       </div>
-      <button
-        type="button"
-        title="Resume PDF coming soon"
+      <a
+        href={resumePdf}
+        download="Nitin Mittapally - Resume.pdf"
         className={cn(
           buttonVariants({ variant: "default" }),
           "w-fit bg-solar-resume-foreground text-solar-resume hover:bg-solar-resume-foreground/90",
         )}
       >
         Download PDF
-      </button>
+      </a>
     </div>
   );
 }

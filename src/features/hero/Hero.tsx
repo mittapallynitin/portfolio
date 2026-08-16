@@ -1,7 +1,7 @@
 import profilePhoto from "@/assets/profile-no-bg.webp";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { resume } from "@/data/resume";
+import { cn } from "@/lib/utils";
 
 function Hero() {
   const { personalInfo, summary } = resume;
@@ -22,11 +22,8 @@ function Hero() {
         <h1 className="font-heading text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
           {personalInfo.name}
         </h1>
-        <p className="text-base text-solar-hero-foreground/80 sm:text-lg">
-          {personalInfo.title}
-        </p>
         <p className="mt-1 line-clamp-3 max-w-xl text-sm text-solar-hero-foreground/70 sm:text-base">
-          {summary}
+          <strong>{personalInfo.title}</strong> {summary}
         </p>
         <div className="mt-2 flex gap-3">
           <a
