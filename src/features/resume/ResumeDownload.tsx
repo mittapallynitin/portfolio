@@ -1,11 +1,17 @@
+import { motion } from "motion/react";
+
 import resumeIcon from "@/assets/curriculum-resume-svgrepo-com.svg";
 import resumePdf from "@/data/Nitin Mittapally - Resume.pdf?url";
 import { buttonVariants } from "@/components/ui/button";
+import { staggerItemFromBottom } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 function ResumeDownload() {
   return (
-    <div className="relative flex h-full min-h-0 min-w-0 flex-col justify-between gap-4 overflow-hidden rounded-tl-[1.5rem] rounded-tr-[2.75rem] rounded-br-[1.5rem] rounded-bl-[2.75rem] bg-solar-resume p-6 text-solar-resume-foreground">
+    <motion.div
+      variants={staggerItemFromBottom}
+      className="relative flex h-full min-h-0 min-w-0 flex-col justify-between gap-4 overflow-hidden rounded-tl-[1.5rem] rounded-tr-[2.75rem] rounded-br-[1.5rem] rounded-bl-[2.75rem] bg-solar-resume p-6 text-solar-resume-foreground transition-shadow duration-300 hover:shadow-[0_0_60px_-8px_var(--solar-resume)]"
+    >
       <div className="pointer-events-none absolute -top-4 right-8 h-24 w-24 sm:h-32 sm:w-32">
         <div className="absolute inset-x-2 bottom-1 h-4 rounded-full bg-black/50 blur-md sm:h-5" />
         <img
@@ -32,7 +38,7 @@ function ResumeDownload() {
       >
         Download PDF
       </a>
-    </div>
+    </motion.div>
   );
 }
 

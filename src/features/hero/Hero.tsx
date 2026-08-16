@@ -1,13 +1,19 @@
+import { motion } from "motion/react";
+
 import profilePhoto from "@/assets/profile-no-bg.webp";
 import { buttonVariants } from "@/components/ui/button";
 import { resume } from "@/data/resume";
+import { staggerItemFromLeft } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 function Hero() {
   const { personalInfo, summary } = resume;
 
   return (
-    <div className="flex h-full min-h-0 min-w-0 items-center gap-6 overflow-hidden rounded-tl-[3.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] rounded-bl-[2.5rem] bg-solar-hero p-6 text-solar-hero-foreground sm:gap-10 sm:p-10">
+    <motion.div
+      variants={staggerItemFromLeft}
+      className="flex h-full min-h-0 min-w-0 items-center gap-6 overflow-hidden rounded-tl-[3.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] rounded-bl-[2.5rem] bg-solar-hero p-6 text-solar-hero-foreground shadow-[0_0_0_0_var(--solar-hero)] transition-shadow duration-300 hover:shadow-[0_0_140px_-10px_var(--solar-hero)] sm:gap-10 sm:p-10"
+    >
       <div className="relative h-28 w-28 shrink-0 sm:h-40 sm:w-40 md:h-48 md:w-48">
         <div className="animate-blob scale-300 absolute inset-0 bg-solar-hero-foreground/20" />
         <div className="animate-blob-reverse scale-150 absolute inset-0 bg-solar-experience-foreground/10" />
@@ -50,7 +56,7 @@ function Hero() {
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

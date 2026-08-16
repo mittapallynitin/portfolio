@@ -1,14 +1,22 @@
+import { motion } from "motion/react";
+
 import { FeaturedBlog } from "@/features/blogs/FeaturedBlog";
 import { Hero } from "@/features/hero/Hero";
 import { FeaturedProject } from "@/features/projects/FeaturedProject";
 import { Reader } from "@/features/reader/Reader";
 import { ExperienceHighlight } from "@/features/resume/ExperienceHighlight";
 import { ResumeDownload } from "@/features/resume/ResumeDownload";
+import { staggerContainer } from "@/lib/motion";
 
 function App() {
   return (
     <div className="flex h-dvh w-full flex-col overflow-hidden">
-      <main className="mx-auto flex min-h-0 w-full max-w-[1600px] flex-1 flex-col gap-4 overflow-hidden px-6 py-6 sm:px-10">
+      <motion.main
+        variants={staggerContainer}
+        initial="hidden"
+        animate="show"
+        className="mx-auto flex min-h-0 w-full max-w-[1600px] flex-1 flex-col gap-4 overflow-hidden px-6 py-6 sm:px-10"
+      >
         <div id="hero" className="grid min-h-0 min-w-0 flex-4 grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
           <Hero />
           <div className="grid min-h-0 min-w-0 grid-rows-2 gap-5">
@@ -25,7 +33,7 @@ function App() {
             <FeaturedBlog />
           </div>
         </div>
-      </main>
+      </motion.main>
       <Reader />
     </div>
   );

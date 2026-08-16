@@ -1,4 +1,7 @@
+import { motion } from "motion/react";
+
 import { resume, type ExperienceEntry } from "@/data/resume";
+import { staggerItemFromTop } from "@/lib/motion";
 
 const MONTH_ABBREVIATIONS: Record<string, number> = {
   jan: 0,
@@ -55,7 +58,10 @@ function ExperienceHighlight() {
   const years = calculateYearsOfExperience(resume.experience);
 
   return (
-    <div className="panel-tonal flex h-full min-h-0 min-w-0 flex-col justify-between gap-2 overflow-hidden rounded-tl-[2rem] rounded-tr-[3rem] rounded-br-[2rem] rounded-bl-[2rem] bg-solar-experience p-6 text-solar-experience-foreground">
+    <motion.div
+      variants={staggerItemFromTop}
+      className="panel-tonal flex h-full min-h-0 min-w-0 flex-col justify-between gap-2 overflow-hidden rounded-tl-[2rem] rounded-tr-[3rem] rounded-br-[2rem] rounded-bl-[2rem] bg-solar-experience p-6 text-solar-experience-foreground transition-shadow duration-300 hover:shadow-[0_0_60px_-8px_var(--solar-experience)]"
+    >
       <p className="text-[11px] font-medium tracking-wide text-solar-experience-foreground/70 uppercase">
         Experience
       </p>
@@ -88,7 +94,7 @@ function ExperienceHighlight() {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
