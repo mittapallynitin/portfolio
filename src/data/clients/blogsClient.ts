@@ -4,6 +4,7 @@ const BLOGS_INDEX_URL = "https://raw.githubusercontent.com/mittapallynitin/blogs
 
 export interface BlogsClient {
   listBlogs(signal?: AbortSignal): Promise<BlogSummary[]>
+  getBlogContent(blog: BlogSummary, signal?: AbortSignal): Promise<string>
 }
 
 export function createBlogsClient(fetchImpl: typeof fetch = fetch): BlogsClient {
@@ -15,6 +16,18 @@ export function createBlogsClient(fetchImpl: typeof fetch = fetch): BlogsClient 
       }
       const data: BlogsIndexResponse = await res.json()
       return data.blogs
+    },
+    async getBlogContent(blog, signal) {
+      const indexRes = await fetchImpl(BLOGS_INDEX_URL, { signal })
+      if (!indexRes.ok) {
+        throw new Error(`Blogs index error: ${indexRes.status}`)
+      }
+      const { url_root } = (await indexRes.json()) as BlogsIndexResponse
+      const contentRes = await fetchImpl(`${url_root}${blog.github}`, { signal })
+      if (!contentRes.ok) {
+        throw new Error(`Blog content error: ${contentRes.status}`)
+      }
+      return contentRes.text()
     },
   }
 }

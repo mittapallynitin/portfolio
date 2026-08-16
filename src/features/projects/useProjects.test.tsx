@@ -10,6 +10,9 @@ function fakeClient(repos: GithubRepo[]): GithubClient {
     async listRepos() {
       return repos
     },
+    async getReadme() {
+      return ""
+    },
   }
 }
 

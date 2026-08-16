@@ -11,8 +11,10 @@ export interface BlogSummary {
   description: string;
   date: string;
   featured: boolean;
+  github: string;
 }
 
 export interface BlogsIndexResponse {
+  url_root: string;
   blogs: BlogSummary[];
 }
