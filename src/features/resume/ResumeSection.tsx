@@ -2,14 +2,14 @@ import { resume } from "@/data/resume"
 
 function ResumeSection() {
   return (
-    <div className="flex w-full max-w-4xl flex-col gap-8">
+    <div className="flex w-full flex-col gap-8">
       <div>
-        <h2 className="font-heading text-2xl font-medium">Summary</h2>
+        <h2 className="font-heading text-lg font-medium sm:text-2xl">Summary</h2>
         <p className="mt-2 text-muted-foreground">{resume.summary}</p>
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-heading text-2xl font-medium">Experience</h2>
+        <h2 className="font-heading text-lg font-medium sm:text-2xl">Experience</h2>
         <div className="flex flex-col gap-10">
           {resume.experience.map((entry) => (
             <div
@@ -23,7 +23,7 @@ function ResumeSection() {
               </div>
               <div className="relative border-l-2 border-pink-300/30 pl-8">
                 <span className="absolute top-1 -left-2.25 h-3 w-3 rounded-full bg-pink-300 ring-4 ring-[#3a0e26]" />
-                <h3 className="font-heading text-lg font-medium">{entry.position}</h3>
+                <h3 className="font-heading text-base font-medium sm:text-lg">{entry.position}</h3>
                 <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                   {entry.description.map((point) => (
                     <li key={point}>{point}</li>
@@ -46,7 +46,7 @@ function ResumeSection() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h2 className="font-heading text-2xl font-medium">Education</h2>
+        <h2 className="font-heading text-lg font-medium sm:text-2xl">Education</h2>
         <div className="flex flex-col gap-10">
           {resume.education.map((edu) => (
             <div
@@ -60,7 +60,7 @@ function ResumeSection() {
               </div>
               <div className="relative border-l-2 border-pink-300/30 pl-8">
                 <span className="absolute top-1 -left-2.25 h-3 w-3 rounded-full bg-pink-300 ring-4 ring-[#3a0e26]" />
-                <h3 className="font-heading text-lg font-medium">{edu.degree}</h3>
+                <h3 className="font-heading text-base font-medium sm:text-lg">{edu.degree}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {edu.relevantCoursework.map((course) => (
                     <span
@@ -78,7 +78,7 @@ function ResumeSection() {
       </div>
 
       <div>
-        <h2 className="font-heading text-2xl font-medium">Skills</h2>
+        <h2 className="font-heading text-lg font-medium sm:text-2xl">Skills</h2>
         <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
           {resume.skills.technical.map((group) => (
             <div key={group.category}>
