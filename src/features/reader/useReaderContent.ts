@@ -1,6 +1,5 @@
 import { createBlogsClient, type BlogsClient } from "@/data/clients/blogsClient"
-import { createGithubClient, type GithubClient } from "@/data/clients/githubClient"
-import { GITHUB_USERNAME } from "@/features/projects/useProjects"
+import { createGithubClient, GITHUB_USERNAME, type GithubClient } from "@/data/clients/githubClient"
 import type { ReaderTarget } from "@/features/reader/readerState"
 import { useAsync, type AsyncState } from "@/hooks/useAsync"
 

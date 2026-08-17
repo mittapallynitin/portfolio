@@ -12,9 +12,9 @@ function Hero() {
   return (
     <motion.div
       variants={staggerItemFromLeft}
-      className="flex h-full min-h-0 min-w-0 items-center gap-6 overflow-hidden rounded-tl-[3.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] rounded-bl-[2.5rem] bg-solar-hero p-6 text-solar-hero-foreground shadow-[0_0_0_0_var(--solar-hero)] transition-shadow duration-300 hover:shadow-[0_0_140px_-10px_var(--solar-hero)] sm:gap-10 sm:p-10"
+      className="flex h-full min-h-0 min-w-0 flex-col items-center gap-4 overflow-hidden rounded-tl-[3.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] rounded-bl-[2.5rem] bg-solar-hero p-5 text-center text-solar-hero-foreground shadow-[0_0_0_0_var(--solar-hero)] transition-shadow duration-300 hover:shadow-[0_0_140px_-10px_var(--solar-hero)] sm:p-10 lg:flex-row lg:items-center lg:gap-10 lg:text-left"
     >
-      <div className="relative h-28 w-28 shrink-0 sm:h-40 sm:w-40 md:h-48 md:w-48">
+      <div className="relative h-20 w-20 shrink-0 xs:h-28 xs:w-28 sm:h-40 sm:w-40 md:h-48 md:w-48">
         <div className="animate-blob scale-300 absolute inset-0 bg-solar-hero-foreground/20" />
         <div className="animate-blob-reverse scale-150 absolute inset-0 bg-solar-experience-foreground/10" />
         <img
@@ -24,11 +24,11 @@ function Hero() {
         />
       </div>
 
-      <div className="flex min-w-0 flex-col gap-2 text-left">
-        <h1 className="font-heading text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+      <div className="flex min-w-0 flex-col items-center gap-2 lg:items-start">
+        <h1 className="font-heading text-3xl font-bold tracking-tight xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
           {personalInfo.name}
         </h1>
-        <p className="mt-1 line-clamp-3 max-w-xl text-sm text-solar-hero-foreground/70 sm:text-base">
+        <p className="mt-1 max-w-xl text-sm text-solar-hero-foreground/70 sm:text-base lg:line-clamp-3">
           <strong>{personalInfo.title}</strong> {summary}
         </p>
         <div className="mt-2 flex gap-3">

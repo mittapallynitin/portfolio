@@ -35,6 +35,14 @@ export const resume = {
     "LLMs",
     "GenAI",
     "AI/ML",
+    "Distributed Systems",
+    "FastAPI",
+    "Kubernetes",
+    "AWS",
+    "Google Cloud",
+    "PyTorch",
+    "Transformers",
+    "Vector Databases",
   ],
 
   experience: [
@@ -64,7 +72,7 @@ export const resume = {
         "Hugging Face",
         "LangChain",
         "OpenAI",
-        "Flask",
+        "FastAPI",
       ],
     },
     {
@@ -145,8 +153,9 @@ export const resume = {
       duration: "2021 - 2021",
       relevantCoursework: [
         "Machine Learning",
-        "Deep Learning",
-        "Natural Language Processing",
+        "Big Data Analytics",
+        "Statistical Analysis",
+        "Data Mining",
       ],
     },
     {
@@ -154,17 +163,15 @@ export const resume = {
       degree: "Bachelor of Engineering in Electronics and Communication",
       location: "Hyderabad, India",
       duration: "2013 - 2017",
-      relevantCoursework: ["Data Structures", "Algorithms", "Computer Vision"],
+      relevantCoursework: [
+        "Programming",
+        "Speech Processing",
+        "Digital Signal Processing",
+      ],
     },
   ],
 
   certifications: [
-    {
-      name: "AWS Certified Machine Learning - Specialty",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credentialId: "AWS-123456",
-    },
     {
       name: "Deep Learning Specialization",
       issuer: "Coursera",
@@ -206,7 +213,10 @@ export const resume = {
           "PyTorch",
           "TensorFlow",
           "Transformers",
+          "NLTK",
+          "Gensim",
           "LangChain",
+          "Langraph",
           "Prompt Engineering",
           "LLM Fine Tuning",
         ],
@@ -286,6 +296,8 @@ export const resume = {
     { language: "English", proficiency: "Native" },
     { language: "Spanish", proficiency: "Intermediate" },
   ],
+
+  projectsToExclude: ["blogs", "portfolio", "mittapallynitin"],
 } as const;
 
 export type Resume = typeof resume;

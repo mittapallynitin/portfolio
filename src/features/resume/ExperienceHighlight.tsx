@@ -39,12 +39,12 @@ function ExperienceHighlight() {
         </span>
       </div>
 
-      <div className="flex min-h-10 items-center justify-between gap-3">
-        <h3 className="shrink-0 font-heading text-2xl font-semibold tracking-wide sm:text-3xl">
+      <div className="flex min-h-10 min-w-0 items-center justify-between gap-2 sm:gap-3">
+        <h3 className="min-w-0 shrink truncate font-heading text-xl font-semibold tracking-wide sm:text-2xl lg:text-3xl">
           {resume.personalInfo.title}
         </h3>
 
-        <div className="min-w-0 overflow-hidden text-right">
+        <div className="min-w-0 shrink-0 overflow-hidden text-right">
           <AnimatePresence mode="wait">
             <motion.div
               key={kpiIndex}
@@ -53,7 +53,7 @@ function ExperienceHighlight() {
               exit={{ y: -24, opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <p className="truncate font-heading text-3xl font-bold tracking-wide sm:text-4xl">
+              <p className="truncate font-heading text-2xl font-bold tracking-wide sm:text-3xl lg:text-4xl">
                 {resume.kpiHighlights[kpiIndex].value}
               </p>
               <p className="truncate text-xs font-medium tracking-wide text-solar-experience-foreground/70 uppercase">

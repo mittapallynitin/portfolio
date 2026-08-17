@@ -1,5 +1,7 @@
 import type { GithubRepo } from "@/data/clients/types"
 
+export const GITHUB_USERNAME = "mittapallynitin"
+
 export interface GithubClient {
   listRepos(username: string, signal?: AbortSignal): Promise<GithubRepo[]>
   getReadme(username: string, repo: string, signal?: AbortSignal): Promise<string>

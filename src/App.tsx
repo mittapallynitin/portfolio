@@ -11,26 +11,31 @@ import { staggerContainer } from "@/lib/motion";
 
 function App() {
   return (
-    <div className="flex h-dvh w-full flex-col overflow-hidden">
+    <div className="flex h-dvh w-full flex-col overflow-y-auto overflow-x-hidden lg:overflow-hidden">
       <motion.main
         variants={staggerContainer}
         initial="hidden"
         animate="show"
-        className="mx-auto flex min-h-0 w-full max-w-[1600px] flex-1 flex-col gap-4 overflow-hidden px-6 py-6 sm:px-10"
+        className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-4 px-6 py-6 sm:px-10 lg:min-h-0 lg:max-h-237.5 lg:my-auto lg:overflow-hidden"
       >
-        <div id="hero" className="grid min-h-0 min-w-0 flex-4 grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
+        <div
+          id="hero"
+          className="grid min-w-0 grid-cols-1 gap-4 lg:min-h-0 lg:flex-4 lg:grid-cols-[2fr_1fr]"
+        >
           <Hero />
-          <div className="grid min-h-0 min-w-0 grid-rows-2 gap-5">
+          <div className="grid min-w-0 grid-cols-1 gap-5 lg:grid-cols-1 lg:grid-rows-2">
             <ExperienceHighlight />
             <ResumeDownload />
           </div>
         </div>
 
-        <div className="grid min-h-0 min-w-0 flex-3 grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
-          <div id="projects" className="min-h-0 min-w-0">
+        <div
+          className="grid min-w-0 grid-cols-1 gap-4 lg:min-h-0 lg:flex-3 lg:grid-cols-[2fr_1fr]"
+        >
+          <div id="projects" className="min-w-0 lg:min-h-0">
             <FeaturedProject />
           </div>
-          <div id="blogs" className="min-h-0 min-w-0">
+          <div id="blogs" className="min-w-0 lg:min-h-0">
             <FeaturedBlog />
           </div>
         </div>

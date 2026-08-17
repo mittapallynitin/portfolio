@@ -49,7 +49,7 @@ function ResumeDownload() {
         <p className="text-[11px] font-medium tracking-wide text-solar-resume-foreground/70 uppercase">
           Resume
         </p>
-        <h3 className="mt-2 font-heading text-2xl font-bold sm:text-3xl">
+        <h3 className="mt-2 font-heading text-xl font-bold sm:text-2xl lg:text-3xl">
           Download my resume
         </h3>
       </div>
