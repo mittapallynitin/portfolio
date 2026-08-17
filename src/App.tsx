@@ -11,12 +11,12 @@ import { staggerContainer } from "@/lib/motion";
 
 function App() {
   return (
-    <div className="flex h-dvh w-full flex-col overflow-y-auto overflow-x-hidden lg:overflow-hidden">
+    <div className="flex h-dvh w-full flex-col overflow-y-auto overflow-x-hidden lg:justify-center-safe">
       <motion.main
         variants={staggerContainer}
         initial="hidden"
         animate="show"
-        className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-4 px-6 py-6 sm:px-10 lg:min-h-0 lg:max-h-237.5 lg:my-auto lg:overflow-hidden"
+        className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-4 px-6 py-6 sm:px-10 lg:max-h-237.5"
       >
         <div
           id="hero"

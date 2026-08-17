@@ -33,7 +33,7 @@ function FeaturedProject() {
       onPan={isOpen ? onPan : undefined}
       onPanEnd={isOpen ? onPanEnd : undefined}
       className={cn(
-        "panel-tonal flex flex-col overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] rounded-br-[2rem] rounded-bl-[3rem] bg-solar-projects p-6 text-solar-projects-foreground transition-shadow duration-300 hover:shadow-[0_0_110px_-10px_var(--solar-projects)] sm:p-8",
+        "panel-tonal flex flex-col overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] rounded-br-[2rem] rounded-bl-[3rem] bg-solar-projects p-6 text-solar-projects-foreground transition-shadow duration-300 hover:shadow-[0_0_110px_-10px_var(--solar-projects)] sm:p-8 lg:justify-center-safe",
         isOpen
           ? "fixed inset-0 z-50 h-screen w-screen touch-pan-x rounded-none"
           : "h-full min-h-0 min-w-0",

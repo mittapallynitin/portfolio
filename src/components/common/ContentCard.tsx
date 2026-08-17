@@ -43,10 +43,10 @@ function ContentCard({
         className,
       )}
     >
-      <CardHeader className="min-h-0 flex-1 content-start overflow-hidden">
-        <CardTitle className="line-clamp-2">{title}</CardTitle>
+      <CardHeader className="flex min-h-0 flex-1 flex-col gap-1.5 overflow-hidden">
+        <CardTitle className="line-clamp-2 shrink-0">{title}</CardTitle>
         <CardDescription
-          className={cn("line-clamp-2", descriptionClassName)}
+          className={cn("line-clamp-2 shrink-0", descriptionClassName)}
         >
           {description}
         </CardDescription>

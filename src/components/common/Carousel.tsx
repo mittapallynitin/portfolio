@@ -14,10 +14,10 @@ function Carousel<T>({ items, keyFor, renderItem }: CarouselProps<T>) {
   }
 
   return (
-    <div className="group relative min-h-0 min-w-0 lg:flex-1">
+    <div className="group relative min-h-0 min-w-0 lg:flex-none">
       <div
         ref={trackRef}
-        className="scrollbar-none flex h-64 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 py-4 lg:h-full"
+        className="scrollbar-none flex h-64 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 py-4 lg:h-56"
       >
         {items.map((item, index) => (
           <div

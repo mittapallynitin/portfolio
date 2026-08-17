@@ -33,7 +33,7 @@ function FeaturedBlog() {
       onPan={isOpen ? onPan : undefined}
       onPanEnd={isOpen ? onPanEnd : undefined}
       className={cn(
-        "flex flex-col overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] rounded-br-[3rem] rounded-bl-[2rem] bg-solar-blogs p-6 text-solar-blogs-foreground transition-shadow duration-300 hover:shadow-[0_0_90px_-9px_var(--solar-blogs)] sm:p-8",
+        "flex flex-col overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] rounded-br-[3rem] rounded-bl-[2rem] bg-solar-blogs p-6 text-solar-blogs-foreground transition-shadow duration-300 hover:shadow-[0_0_90px_-9px_var(--solar-blogs)] sm:p-8 lg:justify-center-safe",
         isOpen
           ? "fixed inset-0 z-50 h-screen w-screen touch-pan-x rounded-none"
           : "h-full min-h-0 min-w-0",
