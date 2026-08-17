@@ -17,7 +17,7 @@ function Carousel<T>({ items, keyFor, renderItem }: CarouselProps<T>) {
     <div className="group relative min-h-0 min-w-0 lg:flex-1">
       <div
         ref={trackRef}
-        className="scrollbar-none flex h-64 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth lg:h-full"
+        className="scrollbar-none flex h-64 snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 py-4 lg:h-full"
       >
         {items.map((item, index) => (
           <div

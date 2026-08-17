@@ -26,25 +26,31 @@ function ReaderBody({ target }: { target: ReaderTarget }) {
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.18, ease: "easeOut" }}
-      className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col gap-6"
+      className="flex min-h-0 w-full flex-1 flex-col gap-6"
     >
       {state.status === "loading" && (
-        <p className="text-sm text-muted-foreground">Loading...</p>
+        <p className="mx-auto w-full max-w-2xl text-sm text-muted-foreground">
+          Loading...
+        </p>
       )}
       {state.status === "error" && (
-        <p className="text-sm text-destructive">Couldn't load content.</p>
+        <p className="mx-auto w-full max-w-2xl text-sm text-destructive">
+          Couldn't load content.
+        </p>
       )}
       {state.status === "success" && (
         <>
-          <DialogHeader>
+          <DialogHeader className="mx-auto w-full max-w-2xl">
             <DialogTitle className={cn("text-lg font-bold", READER_TINT[target.type].accent)}>
               {state.data.title}
             </DialogTitle>
           </DialogHeader>
-          <div className="prose prose-invert max-w-none overflow-y-auto">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {state.data.markdown}
-            </ReactMarkdown>
+          <div className="min-h-0 flex-1 overflow-y-auto pr-10">
+            <div className="prose prose-invert mx-auto max-w-2xl rounded-3xl bg-black/20 p-8 ring-1 ring-white/5 shadow-2xl shadow-black/40">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {state.data.markdown}
+              </ReactMarkdown>
+            </div>
           </div>
         </>
       )}
@@ -59,7 +65,7 @@ function Reader() {
     <Dialog open={target !== null} onOpenChange={(open) => !open && close()}>
       <DialogContent
         className={cn(
-          "flex h-[80vh] w-[80vw] max-w-[80vw] flex-col overflow-hidden px-10 backdrop-blur-xl sm:max-w-[80vw]",
+          "flex h-[92vh] w-[80vw] max-w-[80vw] flex-col overflow-hidden pl-10 pr-2 backdrop-blur-xl sm:max-w-[80vw]",
           target ? READER_TINT[target.type].bg : "bg-popover/85"
         )}
       >
