@@ -2,7 +2,7 @@
 
 React + Vite + TypeScript + Tailwind v4 + shadcn rebuild of a static portfolio site. Also a learning project — code choices should stay simple enough to explain, and favor patterns familiar from a FastAPI/Python dependency-injection background over React idioms taken on faith.
 
-`old/` is the legacy static HTML/CSS/JS site — read-only reference for content and design language. Never edit it.
+The legacy static HTML/CSS/JS site this was rebuilt from has been removed; content/design decisions it informed are captured in the notes below.
 
 ## Commands
 
